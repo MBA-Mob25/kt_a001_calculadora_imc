@@ -1,15 +1,23 @@
 package com.example.calculadora_imc.utils
 
+// Método responsável pelo calculo do IMC
 internal fun getImcResult(pesoTxt: String, alturaTxt: String): IMCResult {
 
+    // Caso identifiquemos que o usuário mandou um ou mais valores vazio,
+    // não será possível efetuar o calco e devemos retornar uma mensagem customizada
     if(pesoTxt.isEmpty() || alturaTxt.isEmpty()) {
         return IMCResult(Result.BLANK)
     }
 
+    // Transformando os dados recebidos pelo usuário em FLOAT, assim podendo
+    // efetuar o calculo corretamente
     val peso = pesoTxt.toFloat()
     val altura = alturaTxt.toFloat()
+
+    // Vamos pegar o peso e dividir pela altura ao quadrado, com isso teremos o IMC
     val imc = peso / (altura * altura)
 
+    // Switch de testes para exibir qual o valor do IMC do usuário na tela
     if (imc < 16) {
         return IMCResult(Result.MAGREZA_III)
     } else if (imc < 17) {
@@ -29,7 +37,10 @@ internal fun getImcResult(pesoTxt: String, alturaTxt: String): IMCResult {
     }
 }
 
+// Uma class de DADOS para transitar informações de forma segura e TIPADA
 data class IMCResult(val result: Result)
+
+// Switch de opções em forma de texto para representar os IMCs para o usuário
 enum class Result(val label: String) {
     MAGREZA_III("Magreza Severa"),
     MAGREZA_II("Magreza moderada"),
