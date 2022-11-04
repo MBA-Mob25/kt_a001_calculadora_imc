@@ -17,6 +17,6 @@ Neste caso estamos testando 3 tipos de potênciais situações:
 2. Quando o usuário preenche apenas a altura e deixa o valor do peso em branco, assim retornando a mensagem de erro;
 3. Quando o oporto da cena 2. ocorre, ou seja, contendo o peso e faltando a altura.
 
-<img src="tela_teste.png" width="200px">
+<img src="tela_teste.png" width="500px">
 
 
